@@ -1,0 +1,21 @@
+version: 1
+default_environment: dev
+environments:
+  - name: dev
+plugins:
+  extractors:
+    - name: tap-ladder
+      namespace: tap_ladder
+      pip_url: -e .
+      capabilities:
+        - state
+        - catalog
+        - discover
+        - about
+      config:
+        api_url: https://app.ladderai.com
+      # api_key is supplied via TAP_LADDER_API_KEY in the environment.
+  loaders:
+    - name: target-jsonl
+      variant: andyh1203
+      pip_url: target-jsonl
